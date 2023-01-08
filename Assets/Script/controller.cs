@@ -10,8 +10,8 @@ public class controller : MonoBehaviour
     public float speed = 0;
 
     public TextMeshProUGUI countText;
-    public GameObject goCount;
-    //public GameObject winTextObject;
+   
+    
     int count = 0;
     public int max;
 
@@ -23,6 +23,7 @@ public class controller : MonoBehaviour
     {     
         countText = GameObject.Find("count").GetComponent<TextMeshProUGUI>();
         menuController = GameObject.Find("UI").GetComponent<MenuController>();
+        respawnPoint = GameObject.Find("respawn").GetComponent<Transform>();
     }
     private void Update()
     {
@@ -35,7 +36,7 @@ public class controller : MonoBehaviour
     {
         count = 0;
         SetCountText();
-        //winTextObject.SetActive(false);
+     
     }
     private void OnMove(InputValue movementValue)
     {
@@ -53,8 +54,6 @@ public class controller : MonoBehaviour
 
         if (count >= max)
         {
-            // Set the text value of your 'winText'
-            //winTextObject.SetActive(true);
             menuController.WinGame();
         }
     }
